@@ -19,6 +19,7 @@ public class AdminController {
     @GetMapping("test")
     public String test()
     {
+        //TODO 解决J2Cache报错的问题
         CacheUtils.save(CacheRegion.SYS_CACHE.value(),"test","123465");
         return "test success";
     }
