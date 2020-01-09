@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+mybatis:
+  mapper-locations: classpath:com/bhcloud/jeefast/modules/**/mapper/*.xml
+  type-aliases-package: com.bhcloud.jeefast.moudles
+  config-location: classpath:mybatis/mybatis-config.xml
+
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+adminPath: /admin
