@@ -1,9 +1,11 @@
 package com.bhcloud.jeefast.common.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 
 import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 基础实体类
@@ -13,6 +15,10 @@ import java.io.Serializable;
 public abstract class BaseEntity<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    private String id;
+    private Date createTime;
+    private Date updateTime;
 
 /*    *//**
      * 实体编号（唯一标识）

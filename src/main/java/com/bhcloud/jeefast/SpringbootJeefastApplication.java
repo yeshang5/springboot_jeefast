@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @MapperScan(basePackages = "com.bhcloud.jeefast")
 @SpringBootApplication
-@EnableAutoConfiguration
 public class SpringbootJeefastApplication {
 
     public static void main(String[] args) {

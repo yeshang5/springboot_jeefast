@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bhcloud.jeefast.moudles.user.mapper.UserMapper">
+    <sql id="cloumn">
+        id AS "id",
+        login_name AS "loginName",
+        name As "name",
+        password AS "password",
+        tel AS "tel"
+    </sql>
+
+    <insert id="insert">
+        INSERT INTO
+        sys_user
+        (
+            id,
+            login_name,
+            name,
+            password,
+            tel
+        ) values (
+            #{id},
+            #{loginName},
+            #{name},
+            #{password},
+            #{tel}
+        )
+    </insert>
+
+    <select id="get">
+        SELECT
+        <include refid="cloumn"/>
+        FROM
+            sys_user
+        where
+            id=#{id}
+    </select>
+</mapper>

@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://120.78.213.243:3306/jeefast?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
