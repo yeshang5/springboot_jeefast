@@ -2,8 +2,8 @@ package com.bhcloud.jeefast.moudles.system.controller;
 
 import com.bhcloud.jeefast.common.utils.CacheUtils;
 import com.bhcloud.jeefast.core.cache.CacheRegion;
-import com.bhcloud.jeefast.moudles.user.entity.User;
-import com.bhcloud.jeefast.moudles.user.service.UserService;
+
+import com.bhcloud.jeefast.moudles.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,35 +24,27 @@ public class AdminController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("test")
-    public String test()
+    @GetMapping("insertCache")
+    public String insertCache(String region,String key,String value)
     {
         //TODO 解决J2Cache报错的问题
-       /* CacheUtils.save(CacheRegion.SYS_CACHE.value(),"test","123465");*/
-        return "test success";
+        CacheUtils.save(region,key,value);
+        return "写入缓存成功";
     }
 
-    @GetMapping("insertUser")
-    public User insertUser(User user)
+    @GetMapping("getCache")
+    public String getCache(String region,String key)
     {
-        if (user!=null)
-        {
-            user.setId("123456");
-            userService.insert(user);
-        }
-        return user;
+        //TODO 解决J2Cache报错的问题
+        Object result= CacheUtils.get(region,key);
+        return result==null?"缓存已过期":result.toString();
     }
 
-    @GetMapping("getUser")
-    public User getUser(User user)
+    @GetMapping("removeCache")
+    public String removeCache(String region,String key)
     {
-        if (StringUtils.isEmpty(user.getId()))
-        {
-            user=new User();
-
-        }else {
-            user=userService.get(user);
-        }
-        return user;
+        //TODO 解决J2Cache报错的问题
+        CacheUtils.remove(region,key);
+        return "清除缓存成功";
     }
 }

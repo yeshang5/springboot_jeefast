@@ -1,7 +1,7 @@
-package com.bhcloud.jeefast.moudles.user.mapper;
+package com.bhcloud.jeefast.moudles.system.mapper;
 
 import com.bhcloud.jeefast.common.mapper.BaseMapper;
-import com.bhcloud.jeefast.moudles.user.entity.User;
+import com.bhcloud.jeefast.moudles.system.entity.User;
 import org.springframework.stereotype.Repository;
 
 @Repository

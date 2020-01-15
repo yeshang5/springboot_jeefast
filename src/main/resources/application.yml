@@ -17,12 +17,24 @@ spring:
     suffix: .html
     encoding: UTF-8
   profiles:
-    active: prod
-
-
-adminPath: /admin
+    active: dev
 
 j2cache:
-  config-location: classpath:/j2cache/j2cache.properties
+  config-location: classpath:/j2cache.properties
   open-spring-cache: true
   redis-client: lettuce
+
+logging:
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+#    console: "%d - %msg%n"   #日志输出格式
+  file:
+    name: jeefast.log
+    path: ../logs/jeefast/
+  level:
+#    root: warn
+    com.bhcloud.jeefast: debug
+
+
+#自定义属性
+adminPath: /admin

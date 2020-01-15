@@ -19,4 +19,10 @@
 
     <cache alias="default" uses-template="default"/>
 
+    <!-- 系统缓存 -->
+    <cache alias="sysCache" uses-template="default"/>
+
+    <!-- 用户缓存 -->
+    <cache alias="userCache" uses-template="default"/>
+
 </config>

@@ -1,12 +1,13 @@
-package com.bhcloud.jeefast.moudles.user.service;
+package com.bhcloud.jeefast.moudles.system.service;
 
-import com.bhcloud.jeefast.moudles.user.entity.User;
-import com.bhcloud.jeefast.moudles.user.mapper.UserMapper;
+import com.bhcloud.jeefast.moudles.system.entity.User;
+import com.bhcloud.jeefast.moudles.system.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
+
     @Autowired
     private UserMapper userMapper;
 

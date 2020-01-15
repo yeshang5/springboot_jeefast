@@ -1,4 +1,4 @@
-package com.bhcloud.jeefast.moudles.user.entity;
+package com.bhcloud.jeefast.moudles.system.entity;
 
 import com.bhcloud.jeefast.common.entity.BaseEntity;
 import lombok.Data;
