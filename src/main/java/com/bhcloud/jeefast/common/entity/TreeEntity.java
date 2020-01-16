@@ -1,8 +1,7 @@
-/**
- * Copyright &copy; 2015-2020 <a href="http://www.jeefw.org/">JeeFw</a> All rights reserved.
- */
 package com.bhcloud.jeefast.common.entity;
 
+import com.bhcloud.jeefast.common.utils.StringUtils;
+import com.bhcloud.jeefast.common.utils.reflect.Reflections;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.validator.constraints.Length;
 
@@ -75,17 +74,9 @@ public abstract class TreeEntity<T> extends DataEntity<T> {
 	public String getParentId() {
 		String id = null;
 		if (parent != null){
-			id = (String)Reflections.getFieldValue(parent, "id");
+			id = (String) Reflections.getFieldValue(parent, "id");
 		}
 		return StringUtils.isNotBlank(id) ? id : "0";
-	}
-
-	public boolean isHasChildren() {
-		return hasChildren;
-	}
-
-	public void setHasChildren(boolean hasChildren) {
-		this.hasChildren = hasChildren;
 	}
 	
 }

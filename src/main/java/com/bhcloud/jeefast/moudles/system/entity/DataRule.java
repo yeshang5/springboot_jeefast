@@ -1,91 +1,45 @@
-/**
- * Copyright &copy; 2015-2020 <a href="http://www.jeefw.org/">JeeFw</a> All rights reserved.
- */
 package com.bhcloud.jeefast.moudles.system.entity;
 
-
-import com.jeefw.common.utils.StringUtils;
-import com.jeefw.common.utils.excel.annotation.ExcelField;
-import com.jeefw.core.persistence.DataEntity;
+import cn.afterturn.easypoi.excel.annotation.Excel;
+import cn.afterturn.easypoi.excel.annotation.ExcelTarget;
+import com.bhcloud.jeefast.common.entity.DataEntity;
+import com.bhcloud.jeefast.common.utils.StringUtils;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringEscapeUtils;
 
 /**
  * 数据权限Entity
- * @author lgf
- * @version 2017-04-02
+ * @author bh
+ * @version 2020-01-16
  */
+@Data
+@NoArgsConstructor
+@ExcelTarget("DataRule")
 public class DataRule extends DataEntity<DataRule> {
 	
 	private static final long serialVersionUID = 1L;
+	@Excel(name="所属菜单")
 	private String menuId;		// 所属菜单
+
+	@Excel(name ="数据规则名称")
 	private String name;		// 数据规则名称
+
+	@Excel(name = "实体类名")
 	private String className;   //实体类名
+
+	@Excel(name = "规则字段")
 	private String field;		// 规则字段
+
+	@Excel(name = "规则条件")
 	private String express;		// 规则条件
+
+	@Excel(name="规则值")
 	private String value;		// 规则值
+
+	@Excel(name = "自定义sql")
 	private String sqlSegment;		// 自定义sql
-	
-	public DataRule() {
-		super();
-	}
 
-	public DataRule(String id){
-		super(id);
-	}
-
-	@ExcelField(title="所属菜单", align=2, sort=1)
-	public String getMenuId() {
-		return menuId;
-	}
-
-	public void setMenuId(String menuId) {
-		this.menuId = menuId;
-	}
-	
-	@ExcelField(title="数据规则名称", align=2, sort=2)
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	@ExcelField(title="规则字段", align=2, sort=3)
-	public String getField() {
-		return field;
-	}
-
-	public void setField(String field) {
-		this.field = field;
-	}
-	
-	@ExcelField(title="规则条件", dictType="t_express", align=2, sort=4)
-	public String getExpress() {
-		return express;
-	}
-
-	public void setExpress(String express) {
-		this.express = express;
-	}
-	
-	@ExcelField(title="规则值", align=2, sort=5)
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
-	}
-	
-	@ExcelField(title="自定义sql", align=2, sort=6)
-	public String getSqlSegment() {
-		return sqlSegment;
-	}
-
-	public void setSqlSegment(String sqlSegment) {
-		this.sqlSegment = sqlSegment;
-	}
 	
 	public String getDataScopeSql(){
 		StringBuffer sqlBuffer = new StringBuffer();
@@ -97,14 +51,6 @@ public class DataRule extends DataEntity<DataRule> {
 		}
 		
 		return sqlBuffer.toString();
-	}
-
-	public String getClassName() {
-		return className;
-	}
-
-	public void setClassName(String className) {
-		this.className = className;
 	}
 	
 }

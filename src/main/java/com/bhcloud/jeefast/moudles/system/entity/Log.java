@@ -1,20 +1,19 @@
-/**
- * Copyright &copy; 2015-2020 <a href="http://www.jeefw.org/">JeeFw</a> All rights reserved.
- */
 package com.bhcloud.jeefast.moudles.system.entity;
 
-import com.jeefw.common.utils.StringUtils;
-import com.jeefw.core.persistence.DataEntity;
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-
+import com.bhcloud.jeefast.common.entity.DataEntity;
+import com.bhcloud.jeefast.common.utils.StringUtils;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.util.Date;
 import java.util.Map;
 
 /**
  * 日志Entity
- * @author jeefw
- * @version 2017-8-19
+ * @author bh
+ * @version 2020-01-16
  */
+@Data
+@NoArgsConstructor
 public class Log extends DataEntity<Log> {
 
 	private static final long serialVersionUID = 1L;
@@ -34,94 +33,6 @@ public class Log extends DataEntity<Log> {
 	public static final String TYPE_ACCESS = "1";
 	public static final String TYPE_EXCEPTION = "2";
 	
-	public Log(){
-		super();
-	}
-	
-	public Log(String id){
-		super(id);
-	}
-	
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getRemoteAddr() {
-		return remoteAddr;
-	}
-
-	public void setRemoteAddr(String remoteAddr) {
-		this.remoteAddr = remoteAddr;
-	}
-
-	public String getUserAgent() {
-		return userAgent;
-	}
-
-	public void setUserAgent(String userAgent) {
-		this.userAgent = userAgent;
-	}
-
-	public String getRequestUri() {
-		return requestUri;
-	}
-
-	public void setRequestUri(String requestUri) {
-		this.requestUri = requestUri;
-	}
-
-	public String getMethod() {
-		return method;
-	}
-
-	public void setMethod(String method) {
-		this.method = method;
-	}
-
-	public String getParams() {
-		return params;
-	}
-
-	public void setParams(String params) {
-		this.params = params;
-	}
-	
-	public String getException() {
-		return exception;
-	}
-
-	public void setException(String exception) {
-		this.exception = exception;
-	}
-
-	public Date getBeginDate() {
-		return beginDate;
-	}
-
-	public void setBeginDate(Date beginDate) {
-		this.beginDate = beginDate;
-	}
-
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
-	
 	/**
 	 * 设置请求参数
 	 * @param paramMap
@@ -138,10 +49,5 @@ public class Log extends DataEntity<Log> {
 			params.append(StringUtils.abbr(StringUtils.endsWithIgnoreCase(param.getKey(), "password") ? "" : paramValue, 100));
 		}
 		this.params = params.toString();
-	}
-	
-	@Override
-	public String toString() {
-		return ReflectionToStringBuilder.toString(this);
 	}
 }

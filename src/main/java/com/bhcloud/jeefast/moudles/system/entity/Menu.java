@@ -1,24 +1,17 @@
-/**
- * Copyright &copy; 2015-2020 <a href="http://www.jeefw.org/">JeeFw</a> All rights reserved.
- */
 package com.bhcloud.jeefast.moudles.system.entity;
 
 import java.util.List;
-
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Length;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.bhcloud.jeefast.common.entity.DataEntity;
+import com.bhcloud.jeefast.moudles.system.utils.UserUtils;
+import lombok.Data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jeefw.core.persistence.DataEntity;
-import com.jeefw.modules.sys.utils.UserUtils;
 
 /**
  * 菜单Entity
- * @author jeefw
- * @version 2016-05-15
+ * @author bh
+ * @version 2020-01-16
  */
+@Data
 public class Menu extends DataEntity<Menu> {
 
 	private static final long serialVersionUID = 1L;
@@ -44,92 +37,6 @@ public class Menu extends DataEntity<Menu> {
 		this.isShow = "1";
 		this.type="1";
 	}
-	
-	public Menu(String id){
-		super(id);
-	}
-	
-	@JsonBackReference
-	@NotNull
-	public Menu getParent() {
-		return parent;
-	}
-
-	public void setParent(Menu parent) {
-		this.parent = parent;
-	}
-
-	@Length(min=1, max=2000)
-	public String getParentIds() {
-		return parentIds;
-	}
-
-	public void setParentIds(String parentIds) {
-		this.parentIds = parentIds;
-	}
-	
-	@Length(min=1, max=100)
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	@Length(min=0, max=2000)
-	public String getHref() {
-		return href;
-	}
-
-	public void setHref(String href) {
-		this.href = href;
-	}
-
-	@Length(min=0, max=20)
-	public String getTarget() {
-		return target;
-	}
-
-	public void setTarget(String target) {
-		this.target = target;
-	}
-	
-	@Length(min=0, max=100)
-	public String getIcon() {
-		return icon;
-	}
-
-	public void setIcon(String icon) {
-		this.icon = icon;
-	}
-	
-	@NotNull
-	public Integer getSort() {
-		return sort;
-	}
-	
-	public void setSort(Integer sort) {
-		this.sort = sort;
-	}
-	
-	@Length(min=1, max=1)
-	public String getIsShow() {
-		return isShow;
-	}
-
-	public void setIsShow(String isShow) {
-		this.isShow = isShow;
-	}
-
-	@Length(min=0, max=200)
-	public String getPermission() {
-		return permission;
-	}
-
-	public void setPermission(String permission) {
-		this.permission = permission;
-	}
 
 	public String getParentId() {
 		return parent != null && parent.getId() != null ? parent.getId() : "0";
@@ -139,8 +46,9 @@ public class Menu extends DataEntity<Menu> {
 	public boolean hasPermisson(){
 		List<Menu> menuList = UserUtils.getMenuList();
 		for(Menu menu:menuList){
-			if(menu.getId().equals(this.getId()))
+			if(menu.getId().equals(this.getId())) {
 				return true;
+			}
 		}
 		return false;
 	}
@@ -170,50 +78,5 @@ public class Menu extends DataEntity<Menu> {
 	@JsonIgnore
 	public static String getRootId(){
 		return "1";
-	}
-	
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	@Override
-	public String toString() {
-		return name;
-	}
-
-	public void setChildren(List<Menu> children) {
-		this.children = children;
-	}
-
-	public List<Menu> getChildren() {
-		return children;
-	}
-
-	public boolean isHasChildren() {
-		return hasChildren;
-	}
-
-	public void setHasChildren(boolean hasChildren) {
-		this.hasChildren = hasChildren;
-	}
-
-	public List<DataRule> getDataRuleList() {
-		return dataRuleList;
-	}
-
-	public void setDataRuleList(List<DataRule> dataRuleList) {
-		this.dataRuleList = dataRuleList;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 }

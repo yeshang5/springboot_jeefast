@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2015-2020 <a href="http://www.jeefw.org/">JeeFw</a> All rights reserved.
- */
 package com.bhcloud.jeefast.moudles.system.utils;
 
 import com.bhcloud.jeefast.moudles.system.entity.Area;

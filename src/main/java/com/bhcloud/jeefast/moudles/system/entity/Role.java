@@ -1,22 +1,20 @@
-/**
- * Copyright &copy; 2015-2020 <a href="http://www.jeefw.org/">JeeFw</a> All rights reserved.
- */
 package com.bhcloud.jeefast.moudles.system.entity;
 
 import java.util.List;
 
+import com.bhcloud.jeefast.common.entity.DataEntity;
+import com.bhcloud.jeefast.core.config.Global;
+import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.Length;
-
 import com.google.common.collect.Lists;
-import com.jeefw.common.config.Global;
-import com.jeefw.core.persistence.DataEntity;
 
 /**
  * 角色Entity
  * @author jeefw
  * @version 2016-12-05
  */
+@Data
 public class Role extends DataEntity<Role> {
 	
 	private static final long serialVersionUID = 1L;
@@ -35,10 +33,10 @@ public class Role extends DataEntity<Role> {
 	private List<Menu> menuList = Lists.newArrayList(); // 拥有菜单列表
 	private List<DataRule> dataRuleList = Lists.newArrayList(); // 数据范围
 
-	
+
 	public Role() {
 		super();
-		this.useable=Global.YES;
+		this.useable= Global.YES;
 	}
 	
 	public Role(String id){
@@ -50,82 +48,7 @@ public class Role extends DataEntity<Role> {
 		this.user = user;
 	}
 
-	public String getUseable() {
-		return useable;
-	}
 
-	public void setUseable(String useable) {
-		this.useable = useable;
-	}
-
-	public String getSysData() {
-		return sysData;
-	}
-
-	public void setSysData(String sysData) {
-		this.sysData = sysData;
-	}
-
-	public Office getOffice() {
-		return office;
-	}
-
-	public void setOffice(Office office) {
-		this.office = office;
-	}
-
-	@Length(min=1, max=100)
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	@Length(min=1, max=100)
-	public String getEnname() {
-		return enname;
-	}
-
-	public void setEnname(String enname) {
-		this.enname = enname;
-	}
-	
-	@Length(min=1, max=100)
-	public String getRoleType() {
-		return roleType;
-	}
-
-	public void setRoleType(String roleType) {
-		this.roleType = roleType;
-	}
-
-
-	public String getOldName() {
-		return oldName;
-	}
-
-	public void setOldName(String oldName) {
-		this.oldName = oldName;
-	}
-
-	public String getOldEnname() {
-		return oldEnname;
-	}
-
-	public void setOldEnname(String oldEnname) {
-		this.oldEnname = oldEnname;
-	}
-
-
-	public List<Menu> getMenuList() {
-		return menuList;
-	}
-
-	public void setMenuList(List<Menu> menuList) {
-		this.menuList = menuList;
-	}
 
 	public List<String> getMenuIdList() {
 		List<String> menuIdList = Lists.newArrayList();

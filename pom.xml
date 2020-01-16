@@ -210,6 +210,11 @@
             <artifactId>commons-codec</artifactId>
             <version>1.13</version>
         </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-spring-boot-starter</artifactId>
+            <version>4.0.0</version>
+        </dependency>
     </dependencies>
 
 </project>
