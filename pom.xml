@@ -159,27 +159,6 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.9</version>
         </dependency>
-        <!--QRcode-->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>23.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.zxing</groupId>
-            <artifactId>core</artifactId>
-            <version>3.3.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.zxing</groupId>
-            <artifactId>javase</artifactId>
-            <version>3.3.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.activiti</groupId>
-            <artifactId>activiti-engine</artifactId>
-            <version>5.21.0</version>
-        </dependency>
         <!--shiro-->
         <dependency>
             <groupId>org.apache.shiro</groupId>
@@ -210,10 +189,17 @@
             <artifactId>commons-codec</artifactId>
             <version>1.13</version>
         </dependency>
+        <!--easyPoi excel插件-->
         <dependency>
             <groupId>cn.afterturn</groupId>
             <artifactId>easypoi-spring-boot-starter</artifactId>
             <version>4.0.0</version>
+        </dependency>
+        <!--PageHelper物理分页插件-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.13</version>
         </dependency>
     </dependencies>
 

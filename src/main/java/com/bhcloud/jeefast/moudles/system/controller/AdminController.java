@@ -27,7 +27,6 @@ public class AdminController {
     @GetMapping("insertCache")
     public String insertCache(String region,String key,String value)
     {
-        //TODO 解决J2Cache报错的问题
         CacheUtils.save(region,key,value);
         return "写入缓存成功";
     }
@@ -35,7 +34,6 @@ public class AdminController {
     @GetMapping("getCache")
     public String getCache(String region,String key)
     {
-        //TODO 解决J2Cache报错的问题
         Object result= CacheUtils.get(region,key);
         return result==null?"缓存已过期":result.toString();
     }
@@ -43,7 +41,6 @@ public class AdminController {
     @GetMapping("removeCache")
     public String removeCache(String region,String key)
     {
-        //TODO 解决J2Cache报错的问题
         CacheUtils.remove(region,key);
         return "清除缓存成功";
     }
