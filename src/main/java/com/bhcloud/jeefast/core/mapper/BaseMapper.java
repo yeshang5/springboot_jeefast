@@ -1,4 +1,4 @@
-package com.bhcloud.jeefast.common.mapper;
+package com.bhcloud.jeefast.core.mapper;
 
 import java.util.List;
 

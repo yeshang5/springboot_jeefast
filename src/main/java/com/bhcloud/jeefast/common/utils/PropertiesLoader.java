@@ -1,10 +1,11 @@
 /**
  * Copyright (c) 2005-2011 springside.org.cn
- * 
+ *
  * $Id: PropertiesLoader.java 1690 2012-02-22 13:42:00Z calvinxiu $
  */
 package com.bhcloud.jeefast.common.utils;
 
+import cn.hutool.core.io.IoUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.DefaultResourceLoader;
@@ -15,7 +16,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.NoSuchElementException;
 import java.util.Properties;
-import com.bhcloud.jeefast.common.utils.io.IOUtil;
 /**
  * Properties文件载入工具类. 可载入多个properties文件, 相同的属性在最后载入的文件中的值将会覆盖之前的值，但以System的Property优先.
  * @author calvin
@@ -145,7 +145,7 @@ public class PropertiesLoader {
 			} catch (IOException ex) {
 				logger.info("Could not load properties from path:" + location + ", " + ex.getMessage());
 			} finally {
-				IOUtil.closeQuietly(is);
+				IoUtil.close(is);
 			}
 		}
 		return props;
